@@ -1,0 +1,38 @@
+package com.hibernate.demo.dto;
+
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import com.hibernate.demo.enums.FoodType;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+public class Food {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	@NotBlank
+	private String foodName;
+	@NotBlank
+	private String description;
+	@NotBlank
+	private String foodPic;
+	@NotNull
+	private Float foodPrice;
+	
+	@Enumerated(EnumType.STRING)
+	private FoodType foodType;
+	
+}
+
